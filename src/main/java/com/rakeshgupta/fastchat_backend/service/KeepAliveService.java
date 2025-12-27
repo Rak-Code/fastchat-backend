@@ -14,7 +14,7 @@ public class KeepAliveService {
 
     private final RestClient restClient;
 
-    @Value("${app.url:https://localhost:8080}")
+    @Value("${app.url:https://fastchat-backend-xujp.onrender.com}")
     private String appUrl;
 
     @Value("${app.health-check.endpoint:/api/health}")
