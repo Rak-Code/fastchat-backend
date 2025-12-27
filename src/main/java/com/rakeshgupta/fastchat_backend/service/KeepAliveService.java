@@ -24,7 +24,7 @@ public class KeepAliveService {
      * Scheduled task that runs every 5 minutes to keep the service active
      * This prevents the Render free plan from shutting down due to inactivity
      */
-    @Scheduled(fixedDelay = 300000) // 300000 milliseconds = 5 minutes
+    @Scheduled(fixedDelay = 100000) // 300000 milliseconds = 5 minutes
     public void keepAliveHealthCheck() {
         try {
             String url = appUrl + healthCheckEndpoint;
