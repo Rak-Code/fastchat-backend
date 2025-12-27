@@ -26,6 +26,12 @@ spring:
 server:
   port: ${PORT:8080}
 
+# Keep Alive Service Configuration
+app:
+  url: ${APP_URL:http://localhost:8080}
+  health-check:
+    endpoint: ${APP_HEALTH_CHECK_ENDPOINT:/api/health}
+
 logging:
   level:
     root: INFO
