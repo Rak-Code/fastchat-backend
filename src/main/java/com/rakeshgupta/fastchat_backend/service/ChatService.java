@@ -33,9 +33,10 @@ public class ChatService {
     }
 
     /**
-     * Streaming chat method for Server-Sent Events (SSE)
+     * Streaming chat method for Server-Sent Events (SSE) - DISABLED
      * Returns a reactive stream of tokens for real-time chat responses
      */
+    /*
     public Flux<String> streamChat(String conversationId, String message) {
         if (!StringUtils.hasText(conversationId)) {
             return Flux.error(new IllegalArgumentException("conversationId must not be blank"));
@@ -50,6 +51,7 @@ public class ChatService {
                 .stream()
                 .content();
     }
+    */
 
     public void clearConversation(String conversationId) {
         if (!StringUtils.hasText(conversationId)) {

@@ -28,9 +28,10 @@ public class ChatController {
     }
 
     /**
-     * Streaming chat endpoint using Server-Sent Events (SSE)
+     * Streaming chat endpoint using Server-Sent Events (SSE) - DISABLED
      * Returns a reactive stream of tokens for real-time chat responses
      */
+    /*
     @PostMapping(
             value = "/chat/stream",
             produces = MediaType.TEXT_EVENT_STREAM_VALUE
@@ -41,4 +42,5 @@ public class ChatController {
                 request.message()
         );
     }
+    */
 }
