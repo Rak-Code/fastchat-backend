@@ -15,7 +15,8 @@ spring:
       chat:
         options:
           model: ${GROQ_MODEL:llama-3.3-70b-versatile}
-          temperature: ${TEMPERATURE:0.2}
+          temperature: ${TEMPERATURE:0.1}
+          max-tokens: ${MAX_TOKENS:3000}
 
     chat:
       memory:
