@@ -21,7 +21,7 @@ public class AiConfig {
     @Bean
     public ChatMemory chatMemory(
             ChatMemoryRepository chatMemoryRepository,
-            @Value("${MEMORY_MAX_MESSAGES:20}") int maxMessages
+            @Value("${MEMORY_MAX_MESSAGES:10}") int maxMessages
     ) {
         return MessageWindowChatMemory.builder()
                 .chatMemoryRepository(chatMemoryRepository)
