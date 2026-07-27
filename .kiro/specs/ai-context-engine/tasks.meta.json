@@ -1,0 +1,214 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Create FileExtractor interface and package structure": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546112583
+      },
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546127817
+      },
+      {
+        "executionId": "293a021f-84ac-4a84-b570-e19eb27e2942",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784552486145
+      }
+    ],
+    "1.2 Create exception classes for file processing": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546112663
+      },
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546128781
+      },
+      {
+        "executionId": "293a021f-84ac-4a84-b570-e19eb27e2942",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784552486989
+      }
+    ],
+    "1.3 Implement TxtFileExtractor with encoding handling": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546112743
+      }
+    ],
+    "1.6 Implement MarkdownFileExtractor": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546112877
+      }
+    ],
+    "2.1 Create FileExtractorFactory with auto-discovery": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546112973
+      }
+    ],
+    "3.1 Create DocumentChunker class": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546113042
+      }
+    ],
+    "4.1 Create ContextResult record": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546113168
+      }
+    ],
+    "4.2 Implement ContextBuilder class": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546113266
+      }
+    ],
+    "5. Checkpoint - Core infrastructure complete": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546113364
+      }
+    ],
+    "6.1 Create FileContextService class": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546113456
+      }
+    ],
+    "7.1 Add FileContextService to ChatService": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546113546
+      }
+    ],
+    "8. Checkpoint - Service integration complete": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546113650
+      }
+    ],
+    "9.1 Update ChatController to accept file uploads": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546113721
+      }
+    ],
+    "10.1 Enhance GlobalExceptionHandler": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546113802
+      }
+    ],
+    "11.1 Update application.yml with multipart configuration": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546113961
+      }
+    ],
+    "11.2 Create FileContextConfig configuration class": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546114031
+      }
+    ],
+    "12. Checkpoint - API layer complete": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546114118
+      }
+    ],
+    "13.1 Update pom.xml with Apache PDFBox dependency": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546114242
+      }
+    ],
+    "13.2 Update pom.xml with Apache POI dependency": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546114315
+      }
+    ],
+    "13.3 Add jqwik dependency for property-based testing": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546114410
+      }
+    ],
+    "14.1 Create PdfFileExtractor class": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546114505
+      }
+    ],
+    "15.1 Create DocxFileExtractor class": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546114595
+      }
+    ],
+    "16. Checkpoint - Advanced extractors complete": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546114685
+      }
+    ],
+    "19.1 Add comprehensive JavaDoc to all public APIs": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546114782
+      }
+    ],
+    "19.2 Update README or API documentation": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546114872
+      }
+    ],
+    "19.3 Add logging and monitoring hooks": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546115004
+      }
+    ],
+    "20. Final checkpoint and deployment preparation": [
+      {
+        "executionId": "8d5092fa-21cf-4204-b363-273cf13f9997",
+        "chatSessionId": "sess_53279aed-fad1-4cbb-b91a-266ca8d2cb2b",
+        "timestamp": 1784546115152
+      }
+    ]
+  }
+}
