@@ -1,7 +1,6 @@
 package com.rakeshgupta.fastchat_backend.context.file;
 
 import com.rakeshgupta.fastchat_backend.common.exception.FileProcessingException;
-import org.apache.poi.openxml4j.exceptions.OpenXML4JException;
 import org.apache.poi.xwpf.usermodel.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -138,9 +137,6 @@ public class DocxFileExtractor implements FileExtractor {
         } catch (IOException e) {
             log.error("Failed to read DOCX file {}: {}", displayName, e.getMessage());
             throw new FileProcessingException("DOCX file reading failed", displayName, e);
-        } catch (OpenXML4JException e) {
-            log.error("Failed to parse DOCX structure {}: {}", displayName, e.getMessage());
-            throw new FileProcessingException("DOCX parsing failed", displayName, e);
         } catch (Exception e) {
             log.error("Unexpected error extracting text from DOCX {}: {}", displayName, e.getMessage(), e);
             return "";
