@@ -1,0 +1,40 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:fastchat;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+    hikari:
+      maximum-pool-size: 2
+      minimum-idle: 1
+      connection-timeout: 10000
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  ai:
+    openai:
+      api-key: ${GROQ_API_KEY}
+      base-url: ${GROQ_BASE_URL:https://api.groq.com/openai}
+      chat:
+        options:
+          model: ${GROQ_MODEL:llama-3.3-70b-versatile}
+          temperature: ${TEMPERATURE:0.1}
+          max-tokens: ${MAX_TOKENS:7000}
+    chat:
+      memory:
+        repository:
+          jdbc:
+            initialize-schema: always
+
+cors:
+  allowed-origins: ${cors.allowed-origins:http://localhost:3000,http://localhost:5173,https://fastchat-ten.vercel.app}
+  allowed-methods: ${cors.allowed-methods:GET,POST,PUT,DELETE}
+
+logging:
+  level:
+    root: INFO
+    com.rakeshgupta: DEBUG
+    org.springframework.jdbc.core: WARN

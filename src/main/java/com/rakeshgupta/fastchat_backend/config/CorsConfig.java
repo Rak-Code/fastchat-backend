@@ -15,12 +15,15 @@ public class CorsConfig implements WebMvcConfigurer {
     @Value("${cors.allowed-origins:http://localhost:5173,https://fastchat-ten.vercel.app}")
     private String allowedOrigins;
 
+    @Value("${cors.allowed-methods:GET,POST,PUT,DELETE}")
+    private String allowedMethods;
+
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/api/**")
                 .allowedOrigins(allowedOrigins.split(","))
-                .allowedMethods("GET", "POST", "DELETE", "OPTIONS")
-                .allowedHeaders("Content-Type")
+                .allowedMethods(allowedMethods.split(","))
+                .allowedHeaders("*")
                 .allowCredentials(true);
     }
 }
