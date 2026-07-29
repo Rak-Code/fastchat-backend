@@ -72,6 +72,13 @@
 			<version>4.0.0</version>
 		</dependency>
 
+		<!-- H2 in-memory database for local development -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
 		<!-- PDF text extraction -->
 		<dependency>
 			<groupId>org.apache.pdfbox</groupId>

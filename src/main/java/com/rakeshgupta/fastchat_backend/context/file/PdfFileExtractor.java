@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Set;
@@ -39,7 +40,9 @@ public class PdfFileExtractor implements FileExtractor {
 
         PDDocument document = null;
         try {
-            document = Loader.loadPDF(inputStream);
+            // Read InputStream into byte array (PDFBox 3.x requires byte[] or File)
+            byte[] pdfBytes = toByteArray(inputStream);
+            document = Loader.loadPDF(pdfBytes);
             PDFTextStripper stripper = new PDFTextStripper();
             stripper.setSortByPosition(true);
             String text = stripper.getText(document);
@@ -61,6 +64,19 @@ public class PdfFileExtractor implements FileExtractor {
                 }
             }
         }
+    }
+
+    /**
+     * Reads an InputStream into a byte array.
+     */
+    private byte[] toByteArray(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+        byte[] data = new byte[8192];
+        int n;
+        while ((n = inputStream.read(data, 0, data.length)) != -1) {
+            buffer.write(data, 0, n);
+        }
+        return buffer.toByteArray();
     }
 
     @Override
