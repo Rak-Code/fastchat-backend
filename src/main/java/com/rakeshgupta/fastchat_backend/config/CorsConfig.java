@@ -12,10 +12,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class CorsConfig implements WebMvcConfigurer {
 
-    @Value("${cors.allowed-origins:http://localhost:5173,https://fastchat-ten.vercel.app}")
+    @Value("${cors.allowed-origins:http://localhost:5173,http://localhost:3000,https://fastchat-ten.vercel.app,https://fastchat-llm.vercel.app}")
     private String allowedOrigins;
 
-    @Value("${cors.allowed-methods:GET,POST,PUT,DELETE}")
+    @Value("${cors.allowed-methods:GET,POST,PUT,DELETE,OPTIONS}")
     private String allowedMethods;
 
     @Override
