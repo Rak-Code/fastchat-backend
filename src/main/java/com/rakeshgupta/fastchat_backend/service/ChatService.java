@@ -1,6 +1,8 @@
 package com.rakeshgupta.fastchat_backend.service;
 
 import com.rakeshgupta.fastchat_backend.context.builder.ContextResult;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.stereotype.Service;
@@ -9,6 +11,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class ChatService {
+
+    private static final Logger log = LoggerFactory.getLogger(ChatService.class);
 
     private final ChatClient chatClient;
     private final ChatMemory chatMemory;
@@ -28,11 +32,21 @@ public class ChatService {
             throw new IllegalArgumentException("message must not be blank");
         }
 
-        return chatClient.prompt()
-                .advisors(a -> a.param(ChatMemory.CONVERSATION_ID, conversationId))
-                .user(message)
-                .call()
-                .content();
+        log.info("Processing chat request for conversation: {} with message length: {}", conversationId, message.length());
+
+        try {
+            String response = chatClient.prompt()
+                    .advisors(a -> a.param(ChatMemory.CONVERSATION_ID, conversationId))
+                    .user(message)
+                    .call()
+                    .content();
+            
+            log.debug("Chat response generated successfully for conversation: {}", conversationId);
+            return response;
+        } catch (Exception e) {
+            log.error("Error processing chat request for conversation: {} - {}", conversationId, e.getMessage(), e);
+            throw new RuntimeException("Failed to process chat request: " + e.getMessage(), e);
+        }
     }
 
     /**
@@ -55,15 +69,28 @@ public class ChatService {
             throw new IllegalArgumentException("message must not be blank");
         }
 
-        // Process file context
-        ContextResult contextResult = fileContextService.processFileContext(file, message);
-        String promptToSend = contextResult.enrichedPrompt();
+        log.info("Processing multipart chat request for conversation: {} with message length: {}, file present: {}", 
+                conversationId, message.length(), file != null && !file.isEmpty());
 
-        return chatClient.prompt()
-                .advisors(a -> a.param(ChatMemory.CONVERSATION_ID, conversationId))
-                .user(promptToSend)
-                .call()
-                .content();
+        try {
+            // Process file context
+            ContextResult contextResult = fileContextService.processFileContext(file, message);
+            String promptToSend = contextResult.enrichedPrompt();
+
+            log.debug("File context processed, prompt length: {}", promptToSend.length());
+
+            String response = chatClient.prompt()
+                    .advisors(a -> a.param(ChatMemory.CONVERSATION_ID, conversationId))
+                    .user(promptToSend)
+                    .call()
+                    .content();
+            
+            log.debug("Multipart chat response generated successfully for conversation: {}", conversationId);
+            return response;
+        } catch (Exception e) {
+            log.error("Error processing multipart chat request for conversation: {} - {}", conversationId, e.getMessage(), e);
+            throw new RuntimeException("Failed to process multipart chat request: " + e.getMessage(), e);
+        }
     }
 
     /**
@@ -91,6 +118,8 @@ public class ChatService {
         if (!StringUtils.hasText(conversationId)) {
             throw new IllegalArgumentException("conversationId must not be blank");
         }
+        
+        log.info("Clearing conversation: {}", conversationId);
         chatMemory.clear(conversationId);
     }
 }

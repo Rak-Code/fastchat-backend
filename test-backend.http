@@ -1,0 +1,27 @@
+# Test file to check backend endpoints
+
+### Health Check
+GET http://localhost:8080/api/health
+
+### Test Chat Endpoint - JSON
+POST http://localhost:8080/api/chat
+Content-Type: application/json
+
+{
+  "conversationId": "test-123",
+  "message": "Hello, test message"
+}
+
+### Test Chat Endpoint - Multipart
+POST http://localhost:8080/api/chat
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary
+
+------WebKitFormBoundary
+Content-Disposition: form-data; name="conversationId"
+
+test-456
+------WebKitFormBoundary
+Content-Disposition: form-data; name="message"
+
+Hello from multipart test
+------WebKitFormBoundary--

@@ -46,6 +46,19 @@ spring:
 
 server:
   port: ${PORT:8080}
+  error:
+    include-message: always
+    include-stacktrace: on_param
+
+# Actuator endpoints for monitoring
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,env,metrics
+  endpoint:
+    health:
+      show-details: when-authorized
 
 # Keep Alive Service Configuration
 app:
@@ -68,3 +81,4 @@ logging:
   level:
     root: INFO
     org.springframework.jdbc.core: WARN
+    com.rakeshgupta.fastchat_backend: DEBUG
