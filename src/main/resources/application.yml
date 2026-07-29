@@ -50,16 +50,6 @@ server:
     include-message: always
     include-stacktrace: on_param
 
-# Actuator endpoints for monitoring
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info,env,metrics
-  endpoint:
-    health:
-      show-details: when-authorized
-
 # Keep Alive Service Configuration
 app:
   url: ${APP_URL:http://localhost:8080}
