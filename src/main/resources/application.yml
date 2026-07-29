@@ -61,7 +61,7 @@ app:
     supported-formats: txt,pdf,docx,md,markdown
 
 cors:
-  allowed-origins: ${cors.allowed-origins:http://localhost:5173,https://fastchat-ten.vercel.app}
+  allowed-origins: ${cors.allowed-origins:http://localhost:5173,https://fastchat-ten.vercel.app,https://fastchat-llm.vercel.app/}
   allowed-methods: ${cors.allowed-methods:GET,POST,PUT,DELETE}
 
 logging:
