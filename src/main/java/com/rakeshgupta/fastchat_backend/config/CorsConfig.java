@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import java.util.Arrays;
 
 /**
  * CORS configuration for local development and production.
@@ -20,12 +21,19 @@ public class CorsConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
+        String[] origins = allowedOrigins.split(",");
+        String[] methods = allowedMethods.split(",");
+        
+        System.out.println("CORS Configuration:");
+        System.out.println("Allowed Origins: " + Arrays.toString(origins));
+        System.out.println("Allowed Methods: " + Arrays.toString(methods));
+        
         registry.addMapping("/api/**")
-                .allowedOrigins(allowedOrigins.split(","))
-                .allowedMethods(allowedMethods.split(","))
+                .allowedOrigins(origins)
+                .allowedMethods(methods)
                 .allowedHeaders("*")
                 .allowCredentials(true)
-                .exposedHeaders("*")
+                .exposedHeaders("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials")
                 .maxAge(3600); // Cache preflight response for 1 hour
     }
 }
